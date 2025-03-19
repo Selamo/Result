@@ -118,7 +118,7 @@
             .content {
                 margin-left: 210px;
             }
-            
+
         }
     </style>
 </head>
@@ -142,11 +142,15 @@
 
     <!-- Sidebar Navigation -->
     <div class="sidebar">
+
         <a href="{{ route('admin.dashboard') }}"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
         <a href="{{ route('admin.showRegisterStudentForm') }}"><i class="fas fa-user-plus"></i> Register Student</a>
         <a href="{{ route('admin.showAddCourseForm') }}"><i class="fas fa-book"></i> Add Course</a>
         <a href="{{ route('admin.showRegisterTeacherForm') }}"><i class="fas fa-chalkboard-teacher"></i> Register Teacher</a>
         <a href="{{ route('teacher.showGrades') }}"><i class="fas fa-graduation-cap"></i> Manage Grades</a>
+        <a href="{{ route('admin.users.import') }}"><i class="fas fa-file-import"></i> Import Students</a>
+        <!-- New Import Students button -->
+
     </div>
 
     <!-- Main Content -->

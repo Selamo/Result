@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Storage;
+
 
 class AdminController extends Controller
 {
@@ -163,20 +163,5 @@ class AdminController extends Controller
         $user->delete();
 
         return redirect()->route('admin.showTeachers')->with('success', 'Teacher deleted successfully.');
-    }
-
-    public function exportData()
-    {
-        $students = Student::with('user', 'grades')->get();
-        $csvData = "Name,Email,Average Score\n";
-
-        foreach ($students as $student) {
-            $csvData .= "{$student->user->name},{$student->user->email},{$student->grades->avg('score')}\n";
-        }
-
-        $fileName = 'student_performance.csv';
-        Storage::disk('local')->put($fileName, $csvData);
-
-        return response()->download(storage_path("app/{$fileName}"));
     }
 }

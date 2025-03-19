@@ -12,16 +12,21 @@
         h1 {
             color: #333;
         }
-        a {
+        .button-container {
+            margin-bottom: 20px;
+        }
+        a, .btn-dashboard {
             display: inline-block;
             padding: 10px 15px;
             text-decoration: none;
             color: white;
             background-color: #007bff;
             border-radius: 5px;
-            margin-bottom: 20px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
         }
-        a:hover {
+        a:hover, .btn-dashboard:hover {
             background-color: #0056b3;
         }
         table {
@@ -61,7 +66,10 @@
 </head>
 <body>
     <h1>Manage Students</h1>
-    <a href="{{ route('admin.showRegisterStudentForm') }}">Add Student</a>
+    <div class="button-container">
+        <a href="{{ route('admin.showRegisterStudentForm') }}">Add Student</a>
+        <a href="{{ route('admin.dashboard') }}" class="btn-dashboard">Go to Dashboard</a>
+    </div>
     <table>
         <thead>
             <tr>

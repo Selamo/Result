@@ -1,10 +1,14 @@
 <?php
 
+use App\Http\Controllers\Admin\GradeImportController;
+use App\Http\Controllers\Admin\TeacherImportController;
+use App\Http\Controllers\Admin\UserImportController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProfileController;
 
 Route::get('/', function () {
@@ -23,6 +27,14 @@ Route::get('add-course', [AdminController::class, 'showAddCourseForm'])->name('a
 Route::post('add-course', [AdminController::class, 'addCourse'])->name('admin.addCourse')->middleware('auth');
 Route::get('register-teacher', [AdminController::class, 'showRegisterTeacherForm'])->name('admin.showRegisterTeacherForm')->middleware('auth');
 Route::post('register-teacher', [AdminController::class, 'registerTeacher'])->name('admin.registerTeacher')->middleware('auth');
+Route::get('/admin/upload', [UserImportController::class, 'showUploadForm'])->name('admin.upload')->middleware('auth');
+Route::post('/admin/upload', [UserImportController::class, 'importUsers'])->name('admin.users.import')->middleware('auth');
+
+Route::get('/admin/UploadTeacher', [TeacherImportController::class, 'showUploadTeacherForm'])->name('admin.uploadTeacher')->middleware('auth');;
+Route::post('/admin/UploadTeacher', [TeacherImportController::class, 'importTeachers'])->name('admin.teachers.import')->middleware('auth');;
+
+Route::get('/admin/ImportGrades', [GradeImportController::class, 'showUploadGradeForm'])->name('admin.uploadGrade')->middleware('auth');;
+Route::post('/admin/ImportGrades', [GradeImportController::class, 'importGrades'])->name('admin.grades.import')->middleware('auth');
 
 
 Route::get('grades', [TeacherController::class, 'showGrades'])->name('teacher.showGrades')->middleware('auth');
@@ -51,7 +63,9 @@ Route::prefix('student')->middleware(['auth'])->group(function () {
 Route::get('/admin/export-data', [AdminController::class, 'exportData'])->name('admin.exportData');
 Route::delete('/teacher/grades/{id}', [TeacherController::class, 'deleteGrade'])->name('teacher.deleteGrade')->middleware('auth');
 
-Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('Edit_Profile')->middleware('auth'); // corrected route name
+Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('Edit_Profile')->middleware('auth');
 Route::get('/profile/update/picture', [ProfileController::class, 'showUpdateProfilePictureForm'])->name('profile.picture.edit');
 Route::post('/profile/update/picture', [ProfileController::class, 'updateProfilePicture'])->name('profile.picture.update');
 Route::post('/profile/update', [ProfileController::class, 'updateProfilePicture'])->name('profile.update')->middleware('auth');
+
+
