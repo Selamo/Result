@@ -78,7 +78,7 @@
 </head>
 <body>
     <div class="container">
-        <h2>Upload XLS to Create Users</h2>
+        <h2>Upload XLS to Create Teacher</h2>
 
         @if(session('success'))
             <p class="success">{{ session('success') }}</p>
