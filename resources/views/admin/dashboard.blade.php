@@ -149,7 +149,7 @@
         <a href="{{ route('admin.showRegisterTeacherForm') }}"><i class="fas fa-chalkboard-teacher"></i> Register Teacher</a>
         <a href="{{ route('teacher.showGrades') }}"><i class="fas fa-graduation-cap"></i> Manage Grades</a>
         <a href="{{ route('admin.users.import') }}"><i class="fas fa-file-import"></i> Import Students</a>
-        <!-- New Import Students button -->
+        <a href="{{ route('admin.teachers.import') }}"><i class="fas fa-file-import"></i> Import Teachers</a>
 
     </div>
 
@@ -230,8 +230,6 @@
                 </ul>
             </div>
         </div>
-
-        <!-- Quick Links -->
         <div class="row mt-5">
             <div class="col-md-12">
                 <h2>Quick Links</h2>
@@ -244,7 +242,6 @@
             </div>
         </div>
 
-        <!-- Performance Summary -->
         <div class="row mt-5">
             <div class="col-md-12">
                 <h2>Performance Summary</h2>
@@ -265,16 +262,8 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Add more cards as needed -->
+                    
                 </div>
-            </div>
-        </div>
-
-        <!-- Export Data -->
-        <div class="row mt-5">
-            <div class="col-md-12">
-                <h2>Export Data</h2>
-                <a href="{{ route('admin.exportData') }}" class="btn btn-primary">Export to CSV</a>
             </div>
         </div>
     </div>

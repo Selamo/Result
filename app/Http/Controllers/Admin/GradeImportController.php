@@ -46,7 +46,7 @@ class GradeImportController extends Controller
                 if ($student) {
                     // Insert grade for the existing student
                     Grade::create([
-                        'student_id' => $student->id,
+                        'student_id' => $student->id($row[0]),
                         'course_id' => $row[1],
                         'score' => $row[2],
                         'grade' => $row[3],

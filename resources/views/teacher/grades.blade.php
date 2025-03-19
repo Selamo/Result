@@ -68,7 +68,7 @@
     <h1>Manage Grades</h1>
     <div class="button-container">
         <a href="{{ route('teacher.createGrade') }}">Add Grade</a>
-        <a href="{{ route('teacher.dashboard') }}" class="btn-dashboard">Go to Dashboard</a>
+        <a href="{{ route('admin.dashboard') }}" class="btn-dashboard">Go to Dashboard</a>
     </div>
     <table>
         <thead>
